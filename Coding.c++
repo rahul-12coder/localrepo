@@ -1,4 +1,5 @@
 // Simple Calculator
+
 // #include<iostream>
 // using namespace std;
 // int main(){
@@ -66,6 +67,7 @@
 // }
 
 // odd or even
+
 // #include<iostream>
 // using namespace std;
 // int  main(){
@@ -84,7 +86,43 @@
 
 // Number Gussing game
 
+// #include <iostream>
+// #include <cstdlib>
+// #include <ctime>
+// using namespace std;
+
+// void numberGuessingGame() {
+//     cout << "Welcome to the Number Guessing Game!\n";
+//     cout << "I have picked a number between 1 and 10. Can you guess it?\n";
+//     srand(static_cast<unsigned int>(time(0)));
+
+//     int number = rand() % 10 + 1;
+//     int attempts = 0;
+//     int guess;
+
+//     while (true) {
+//         cout << "Enter your guess: ";
+//         cin >> guess;
+//         if (guess == number) {
+//             cout << "Congratulations! You guessed the number " << number << " correctly in " << attempts << " attempts.\n";
+//             break;
+//         } else if (guess < number) {
+//             cout << "Too low! Try again.\n";
+//         } else {
+//             cout << "Too high! Try again.\n";
+//         }
+//         attempts++;
+//     }
+// }
+
+// int main() {
+//     numberGuessingGame();
+//     return 0;
+// }
+
+
 // Multiplication Table
+
 // #include<iostream>
 // using namespace std;
 // int main(){
@@ -100,22 +138,30 @@
 // }
 
 // Fibonacci Seies of N
-#include<iostream>
+
+#include <iostream>
 using namespace std;
-int main(){
-    int n;
-    int a=0;
-    int b=1;
-    int c;
-    cout<<"Enter Your Nth no. = ";
-    cin>>n;
-    int i=0;
-    while(i<n){
-        cout<<a<<" ";
-        a=b; 
-        b=c;
-        c=a;
-        i++;
+
+void printFibonacci(int n) {
+    if (n <= 0) {
+        cout << "Please enter a positive integer." << endl;
+        return;
     }
-return 0;
+
+    long long first = 0, second = 1, next;
+    for (int i = 1; i <= n; ++i) {
+        cout << first << " ";
+        next = first + second;
+        first = second;
+        second = next;
+    }
+    cout << endl;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of terms: ";
+    cin >> n;
+    printFibonacci(n);
+    return 0;
 }
